@@ -1,15 +1,19 @@
 {
-  "name": "travel-catalog",
+  "name": "travel-details",
   "version": "1.0.0",
-  "description": "",
+  "description": "KP WME TravelDetails component",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
     "build": "webpack -p --mode production"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/witzbould/TravelDetails.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Tom Kopp",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
