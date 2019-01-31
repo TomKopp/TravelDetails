@@ -11,12 +11,24 @@ body {
     /* flex: 1 1 100%; */
 }
 
-.trip {
-    width: 100%;
+.section {
+    margin-top: 24px;
+    padding: 16px;
+    /* width: 100%; */
 }
 
-.trip-summary {
+.section-summary {
+    margin-bottom: 24px !important;
+}
+
+.activity {
     padding: 16px;
+    /* margin: 16px 2.5%; */
+    /* width: 95%; */
+}
+
+.activity + .activity {
+    margin-top: 24px;
 }
 
 .media-list {
@@ -34,4 +46,16 @@ body {
 
 .media-list-tile-media {
     display: block;
+}
+
+.ico-string {
+    display: inline-block;
+}
+
+.ico-string + .ico-string {
+    margin-left: 32px;
+}
+
+.ico-string > svg {
+    margin-right: 8px;
 }
