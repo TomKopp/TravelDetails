@@ -6,7 +6,7 @@ import MediaList from './MediaList';
 import React from 'react';
 import Transport from './Transport';
 
-export default ({ location, startDate, endDate, content, mediaList, rating, transport, hotel, activities }) => {
+export default ({ location, startDate, endDate, content = [], mediaList, rating, transport, hotel, activities = [] }) => {
     const title = content.shift();
 
     return <Paper className="section" component="article">

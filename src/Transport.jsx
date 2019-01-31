@@ -2,7 +2,7 @@ import { Business, Class, EuroSymbol, Flight, FlightLand, FlightTakeoff, Timer }
 import { Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 
-export default ({ type, flights }) => {
+export default ({ type, flights = [] }) => {
     const title = type;
     const price = 'drölf';
 
