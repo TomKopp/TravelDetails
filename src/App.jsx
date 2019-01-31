@@ -31,7 +31,8 @@ export default class App extends Component {
                 </Toolbar>
             </AppBar>
             <div style={{ padding: '16px' }}>
-                <Trip {...this.props.trip} />
+                {/* eslint-disable-next-line no-magic-numbers */}
+                {this.props.trip.sections.length > 1 ? <Trip {...this.props.trip} /> : <></>}
                 {this.state.sectionList.map((el) => <TripSection key={el.id} {...el} />)}
             </div>
             </>;
