@@ -14,7 +14,7 @@ module.exports = {
             }
             , {
                 test: /\.css$/
-                , use: [ 'style-loader', 'css-loader' ]
+                , use: ['style-loader', 'css-loader']
             }
         ]
     }
@@ -36,5 +36,6 @@ module.exports = {
         , publicPath: 'http://localhost:8080/dist/'
         , hotOnly: true
     }
+    , devtool: 'eval-source-map'
     , plugins: [new webpack.HotModuleReplacementPlugin()]
 };
