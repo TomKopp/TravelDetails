@@ -3,10 +3,10 @@ import { CalendarToday, EuroSymbol, Place, Star } from '@material-ui/icons';
 import MediaList from './MediaList';
 import React from 'react';
 
-export default ({ id, name, city: location, bookingStart: startDate, bookingEnd: endDate, offers, hotelImageUrls, rating }) => <Paper className="activity" component="article">
+export default ({ name, city: location, bookingStart: startDate, bookingEnd: endDate, offers, hotelImageUrls, rating }) => <Paper className="paper" component="article">
     <Grid container spacing={16}>
         <Grid item xs={12}>
-            <Typography gutterBottom variant="h4" component="h1">{name}</Typography>
+            <Typography gutterBottom variant="h5" component="h1">{name}</Typography>
         </Grid>
         <Grid item xs={12} sm={5}>
             <MediaList children={hotelImageUrls.map((el) => ({ type: 'img', src: el }))} />

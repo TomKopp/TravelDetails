@@ -3,13 +3,13 @@ import { CalendarToday, EuroSymbol, Place, Star } from '@material-ui/icons';
 import MediaList from './MediaList';
 import React from 'react';
 
-export default ({ id, location, startDate, endDate, content, mediaList, rating, price }) => {
+export default ({ location, startDate, endDate, content, mediaList, rating, price }) => {
     const title = content.shift();
 
-    return <Paper className="activity" component="article">
+    return <Paper className="paper" component="article">
         <Grid container spacing={16}>
             <Grid item xs={12}>
-                <Typography gutterBottom variant="h4" component="h1">{title}</Typography>
+                <Typography gutterBottom variant="h5" component="h1">{title}</Typography>
             </Grid>
             <Grid item xs={12} sm={5}>
                 <MediaList children={mediaList} />

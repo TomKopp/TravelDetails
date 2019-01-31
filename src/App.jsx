@@ -1,4 +1,4 @@
-import { AppBar, CssBaseline, Grid, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import Trip from './Trip';
 import TripSection from './TripSection';

@@ -21,13 +21,13 @@ body {
     margin-bottom: 24px !important;
 }
 
-.activity {
+.paper {
     padding: 16px;
     /* margin: 16px 2.5%; */
     /* width: 95%; */
 }
 
-.activity + .activity {
+.paper + .paper {
     margin-top: 24px;
 }
 
