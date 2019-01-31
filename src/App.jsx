@@ -1,25 +1,25 @@
 import { AppBar, CssBaseline, Grid, Toolbar, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
+import Trip from './Trip';
+import TripSection from './TripSection';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
 
         const notRated = -1;
+        const sectionList = props.trip.sections || [];
 
         this.state = {
             isCurrentTrip: false
-            , id: props.id
-            , title: props.title || 'Generic Title'
-            , startDate: props.startDate
-            , endDate: props.endDate
-            , rating: props.rating || notRated
-            , sectionList: props.sections || []
+            , id: props.trip.id
+            , title: props.trip.title || 'Generic Title'
+            , startDate: props.trip.startDate
+            , endDate: props.trip.endDate
+            , rating: props.trip.rating || notRated
+            , sectionList
+            , mediaList: sectionList.reduce((carry, el) => carry.concat(el.mediaList), [])
         };
-    }
-
-    handleChange(name) {
-        return (event) => this.setState({ [name]: event.target.value });
     }
 
     render() {
@@ -27,13 +27,12 @@ export default class App extends Component {
             <CssBaseline />
             <AppBar position="static">
                 <Toolbar>
-                    <Typography component="h1" variant="h6" color="inherit">{this.props.title}</Typography>
+                    <Typography component="h1" variant="h6" color="inherit">{this.state.title}</Typography>
                 </Toolbar>
             </AppBar>
             <div style={{ padding: '16px' }}>
-                <Grid container spacing={16}>
-                    {this.state.sectionList.map((el) => <Grid key={el.id} item className="app-grid-item"></Grid>)}
-                </Grid>
+                <Trip {...this.props.trip} />
+                {this.state.sectionList.map((el) => <TripSection key={el.id} {...el} />)}
             </div>
             </>;
     }
