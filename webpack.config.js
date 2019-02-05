@@ -28,7 +28,7 @@ module.exports = {
     , output: {
         path: path.resolve(__dirname, 'dist/')
         , publicPath: '/dist/'
-        , filename: 'main.js'
+        , filename: 'TravelDetails.js'
     }
     , devServer: {
         contentBase: path.join(__dirname, 'public/')
@@ -36,6 +36,6 @@ module.exports = {
         , publicPath: 'http://localhost:8080/dist/'
         , hotOnly: true
     }
-    , devtool: 'eval-source-map'
+    // , devtool: 'eval-source-map'
     , plugins: [new webpack.HotModuleReplacementPlugin()]
 };
