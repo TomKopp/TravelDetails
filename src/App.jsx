@@ -7,6 +7,8 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
+        this.travelDetails = props.travelDetails;
+
         const notRated = -1;
         const sectionList = props.trip.sections || [];
 

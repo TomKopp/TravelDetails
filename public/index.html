@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <script src="../dist/main.js"></script>
+    <script src="../dist/TravelDetails.js"></script>
 </head>
+
 <body>
     <div id="root"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script>window.TravelDetailRender(document.getElementById('root'))</script>
+    <script>
+        window.TravelDetailsRender({
+            title: document.title
+            , _renderTargetId: 'root'
+        })
+    </script>
 </body>
+
 </html>
