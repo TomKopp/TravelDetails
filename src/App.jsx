@@ -8,19 +8,10 @@ export default class App extends Component {
         super(props);
 
         this.travelDetails = props.travelDetails;
-
-        const notRated = -1;
-        const sectionList = props.trip.sections || [];
-
         this.state = {
-            isCurrentTrip: false
-            , id: props.trip.id
+            trip: props.trip
             , title: props.trip.title || 'Generic Title'
-            , startDate: props.trip.startDate
-            , endDate: props.trip.endDate
-            , rating: props.trip.rating || notRated
-            , sectionList
-            , mediaList: sectionList.reduce((carry, el) => carry.concat(el.mediaList), [])
+            , sectionList: props.trip.sections || []
         };
     }
 
@@ -34,7 +25,7 @@ export default class App extends Component {
             </AppBar>
             <div style={{ padding: '16px' }}>
                 {/* eslint-disable-next-line no-magic-numbers */}
-                {this.props.trip.sections.length > 1 ? <Trip {...this.props.trip} /> : <></>}
+                {this.state.sectionList.length > 1 ? <Trip {...this.state.trip} /> : <></>}
                 {this.state.sectionList.map((el) => <TripSection key={el.id} {...el} />)}
             </div>
             </>;
