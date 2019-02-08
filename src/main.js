@@ -14,7 +14,3 @@ window.TravelDetailsRender = function TravelDetailsRender(DocumaComponentsTravel
         , document.getElementById(DocumaComponentsTravelDetails._renderTargetId)
     );
 };
-
-// TravelDetailsRender(DomNode) {
-//     return ReactDOM.render(<App title={document.title} trip={trip} />, DomNode);
-// };
