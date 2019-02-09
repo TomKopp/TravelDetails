@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import Trips from 'tripslist';
 
 
-const [, trip] = Trips;
+const [trip] = Trips;
 
 window.TravelDetailsRender = function TravelDetailsRender(DocumaComponentsTravelDetails) {
     ReactDOM.render(
