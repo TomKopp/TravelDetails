@@ -1,5 +1,5 @@
-import { Button, Grid, Paper, Typography } from '@material-ui/core';
 import { FlightLand, FlightTakeoff, Hotel, Star } from '@material-ui/icons';
+import { Grid, Paper, Typography } from '@material-ui/core';
 import MediaList from './MediaList';
 import React from 'react';
 
@@ -23,9 +23,6 @@ export default ({ title = 'Generic Title', startDate, endDate, rating, sections 
                 <Grid item xs={6}><Typography gutterBottom>{endDate && <span className="ico-string"><FlightLand />{endDate.toDateString()}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{hotelsNameList && <span className="ico-string"><Hotel />{hotelsNameList}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{rating && <span className="ico-string"><Star />Rating: {rating}</span>}</Typography></Grid>
-                <Grid item xs={12} container justify="flex-end">
-                    <Button variant="contained" color="primary">Select</Button>
-                </Grid>
             </Grid>
         </Grid>
     </Paper>;

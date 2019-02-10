@@ -3,14 +3,10 @@ import './main.css';
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Trips from 'tripslist';
-
-
-const [trip] = Trips;
 
 window.TravelDetailsRender = function TravelDetailsRender(DocumaComponentsTravelDetails) {
     ReactDOM.render(
-        <App travelDetails={DocumaComponentsTravelDetails} trip={trip} />
+        <App travelDetails={DocumaComponentsTravelDetails} />
         , document.getElementById(DocumaComponentsTravelDetails._renderTargetId)
     );
 };

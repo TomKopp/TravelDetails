@@ -1,5 +1,5 @@
 import { Business, Class, EuroSymbol, Flight as FlightIco, FlightLand, FlightTakeoff } from '@material-ui/icons';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Button, Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 
 export const FlightSegment = ({ startDate, endDate, startLocation, endLocation, flightNo, airline, cabinClass }) => <Grid container spacing={16}>
@@ -20,6 +20,9 @@ export default ({ type: title = 'Generic Title', price, flights = [] }) => <Pape
         {flights.map((el, key) => <Grid key={key} item xs={12} className="flight"><Flight {...el} /></Grid>)}
         <Grid item xs={12} container justify="flex-end">
             <Typography variant="button" gutterBottom>{price && <span className="ico-string"><EuroSymbol />Total: {price}€</span>}</Typography>
+        </Grid>
+        <Grid item container justify="flex-end">
+            <Button variant="contained" color="primary">Change</Button>
         </Grid>
     </Grid>
 </Paper>;

@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 import { AppBar, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import Trip from './Trip';
@@ -8,11 +9,28 @@ export default class App extends Component {
         super(props);
 
         this.travelDetails = props.travelDetails;
+        document.addEventListener('onUpdateTripSections', ({ detail: tripSections }) => this.onUpdateTripSections(tripSections));
+
         this.state = {
             trip: props.trip
-            , title: props.trip.title || 'Generic Title'
-            , sectionsList: props.trip.sections || []
         };
+    }
+
+    get title() {
+        return this.state.trip && this.state.trip.title || 'No Trip Selected';
+    }
+    get sectionsList() {
+        return this.state.trip && this.state.trip.sections || [];
+    }
+
+    updateTrip(trip) {
+        this.setState({ trip });
+        document.dispatchEvent(new CustomEvent('updateTripSections', { detail: trip }));
+    }
+
+    onUpdateTripSections(trip) {
+        console.warn(trip);
+        this.setState({ trip });
     }
 
     render() {
@@ -20,13 +38,14 @@ export default class App extends Component {
             <CssBaseline />
             <AppBar position="static">
                 <Toolbar>
-                    <Typography component="h1" variant="h6" color="inherit">{this.state.title}</Typography>
+                    <Typography component="h1" variant="h6" color="inherit">{this.title}</Typography>
                 </Toolbar>
             </AppBar>
             <div style={{ padding: '16px', maxWidth: '1050px', margin: 'auto' }}>
+                {!this.state.trip && <Typography variant="h2" color="inherit">{this.title}</Typography>}
                 {/* eslint-disable-next-line no-magic-numbers */}
-                {this.state.sectionsList.length > 1 ? <Trip {...this.state.trip} /> : <></>}
-                {this.state.sectionsList.map((el) => <TripSection key={el.id} {...el} />)}
+                {this.sectionsList.length > 1 && <Trip {...this.state.trip} />}
+                {this.sectionsList.map((el) => <TripSection key={el.id} {...el} />)}
             </div>
             </>;
     }
