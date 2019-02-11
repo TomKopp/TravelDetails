@@ -4,7 +4,7 @@ import MediaList from './MediaList';
 import React from 'react';
 
 export default ({ location, startDate, endDate, content, mediaList, rating, price }) => {
-    const title = content.shift();
+    const [title = 'Generic Title', ...contentList] = content;
 
     return <Paper className="paper" component="article">
         <Grid container spacing={16}>
@@ -19,7 +19,7 @@ export default ({ location, startDate, endDate, content, mediaList, rating, pric
                 <Grid item xs={6}><Typography>{price && <span className="ico-string"><EuroSymbol />Price: {price}</span>}</Typography></Grid>
                 <Grid item xs={12}><Typography>{location && <span className="ico-string"><Place />{location}</span>}</Typography></Grid>
                 <Grid item xs={12}><Divider /></Grid>
-                <Grid item xs={12}><Typography gutterBottom>{content.map((el, key) => <Typography key={key} gutterBottom component="span">{el}</Typography>)}</Typography></Grid>
+                <Grid item xs={12}><Typography gutterBottom>{contentList.map((el, key) => <Typography key={key} gutterBottom component="span">{el}</Typography>)}</Typography></Grid>
             </Grid>
             <Grid item container justify="flex-end">
                 <Button variant="contained" color="primary">Change</Button>

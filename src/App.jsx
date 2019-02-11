@@ -41,7 +41,7 @@ export default class App extends Component {
                 </Toolbar>
             </AppBar>
             <div style={{ padding: '16px', maxWidth: '1050px', margin: 'auto' }}>
-                {!this.state.trip && <Typography variant="h2" color="inherit">{this.title}</Typography>}
+                {!this.state.trip && <Typography variant="h3" color="inherit">{this.title}</Typography>}
                 {/* eslint-disable-next-line no-magic-numbers */}
                 {this.sectionsList.length > 1 && <Trip {...this.state.trip} />}
                 {this.sectionsList.map((el) => <TripSection key={el.id} {...el} />)}

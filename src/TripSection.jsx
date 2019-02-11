@@ -7,7 +7,10 @@ import React from 'react';
 import Transport from './Transport';
 
 export default ({ location, startDate, endDate, content = [], mediaList, rating, transport, hotel = [], activities = [] }) => {
-    const title = content.shift() || 'Generic Title';
+    const [title = 'Generic Title', ...contentList] = content;
+    const hotelsNameList = hotel
+        .map((el) => el.name)
+        .join(', ');
 
     return <Paper className="section" component="article">
         <Grid container spacing={16} className="section-summary">
@@ -18,13 +21,13 @@ export default ({ location, startDate, endDate, content = [], mediaList, rating,
                 <Grid item xs={12}><Typography gutterBottom variant="h4" component="h1">{title}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{startDate && <span className="ico-string"><FlightTakeoff />{startDate.toDateString()}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{endDate && <span className="ico-string"><FlightLand />{endDate.toDateString()}</span>}</Typography></Grid>
-                <Grid item xs={6}><Typography gutterBottom>{hotel && <span className="ico-string"><Hotel />{hotel.name}</span>}</Typography></Grid>
+                <Grid item xs={6}><Typography gutterBottom>{hotelsNameList && <span className="ico-string"><Hotel />{hotelsNameList.name}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{rating && <span className="ico-string"><Star />Rating: {rating}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{location && <span className="ico-string"><Place />{location}</span>}</Typography></Grid>
                 <Grid item xs={12}><Typography gutterBottom>
-                    {content.map((el, key) => <Typography key={key} gutterBottom component="span">{el}</Typography>)}
+                    {contentList.map((el, key) => <Typography key={key} gutterBottom component="span">{el}</Typography>)}
                 </Typography></Grid>
-                <Grid item xs={12} container justify="flex-end">
+                <Grid item container justify="flex-end">
                     <Button variant="contained" color="primary">Change</Button>
                 </Grid>
             </Grid>
