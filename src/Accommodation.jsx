@@ -18,8 +18,8 @@ export default ({ name, city: location, bookingStart: startDate, bookingEnd: end
             <MediaList children={hotelImageUrls.map((el) => ({ type: 'img', src: el }))} />
         </Grid>
         <Grid item container xs={12} sm={7} spacing={8}>
-            <Grid item xs={6}><Typography>{startDate && <span className="ico-string"><CalendarToday />Begin: {startDate.toDateString()}</span>}</Typography></Grid>
-            <Grid item xs={6}><Typography>{endDate && <span className="ico-string"><CalendarToday />End: {endDate.toDateString()}</span>}</Typography></Grid>
+            <Grid item xs={6}><Typography>{startDate && <span className="ico-string"><CalendarToday />Begin: {(new Date(startDate)).toDateString()}</span>}</Typography></Grid>
+            <Grid item xs={6}><Typography>{endDate && <span className="ico-string"><CalendarToday />End: {(new Date(endDate)).toDateString()}</span>}</Typography></Grid>
             <Grid item xs={6}><Typography>{rating && <span className="ico-string"><Star />Rating: {rating}</span>}</Typography></Grid>
             <Grid item xs={6}><Typography>{location && <span className="ico-string"><Place />{location}</span>}</Typography></Grid>
             <Grid item xs={12}><Typography gutterBottom>{hotelFeatureList && <span>Features: {hotelFeatureList.map((el) => el.name).join(', ')}</span>}</Typography></Grid>

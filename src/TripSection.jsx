@@ -19,8 +19,8 @@ export default ({ location, startDate, endDate, content = [], mediaList, rating,
             </Grid>
             <Grid item container xs={12} sm={7}>
                 <Grid item xs={12}><Typography gutterBottom variant="h4" component="h1">{title}</Typography></Grid>
-                <Grid item xs={6}><Typography gutterBottom>{startDate && <span className="ico-string"><FlightTakeoff />{startDate.toDateString()}</span>}</Typography></Grid>
-                <Grid item xs={6}><Typography gutterBottom>{endDate && <span className="ico-string"><FlightLand />{endDate.toDateString()}</span>}</Typography></Grid>
+                <Grid item xs={6}><Typography gutterBottom>{startDate && <span className="ico-string"><FlightTakeoff />{(new Date(startDate)).toDateString()}</span>}</Typography></Grid>
+                <Grid item xs={6}><Typography gutterBottom>{endDate && <span className="ico-string"><FlightLand />{(new Date(endDate)).toDateString()}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{hotelsNameList && <span className="ico-string"><Hotel />{hotelsNameList.name}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{rating && <span className="ico-string"><Star />Rating: {rating}</span>}</Typography></Grid>
                 <Grid item xs={6}><Typography gutterBottom>{location && <span className="ico-string"><Place />{location}</span>}</Typography></Grid>

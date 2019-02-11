@@ -4,8 +4,8 @@ import React from 'react';
 
 export const FlightSegment = ({ startDate, endDate, startLocation, endLocation, flightNo, airline, cabinClass }) => <Grid container spacing={16}>
     <Grid item xs={12}><Typography gutterBottom>{flightNo && <b className="ico-string"><FlightIco />Flight number: {flightNo} - From: {startLocation.city} To: {endLocation.city}</b>}</Typography></Grid>
-    <Grid item xs={6}><Typography gutterBottom>{startDate && <span className="ico-string"><FlightTakeoff />Begin: {startDate.toDateString()}</span>}</Typography></Grid>
-    <Grid item xs={6}><Typography gutterBottom>{endDate && <span className="ico-string"><FlightLand />End: {endDate.toDateString()}</span>}</Typography></Grid>
+    <Grid item xs={6}><Typography gutterBottom>{startDate && <span className="ico-string"><FlightTakeoff />Begin: {(new Date(startDate)).toDateString()}</span>}</Typography></Grid>
+    <Grid item xs={6}><Typography gutterBottom>{endDate && <span className="ico-string"><FlightLand />End: {(new Date(endDate)).toDateString()}</span>}</Typography></Grid>
     <Grid item xs={6}><Typography gutterBottom>{cabinClass && <span className="ico-string"><Class />Cabin class: {cabinClass}</span>}</Typography></Grid>
     <Grid item xs={6}><Typography gutterBottom>{airline && <span className="ico-string"><Business />Airline: {airline.name}</span>}</Typography></Grid>
 </Grid>;
