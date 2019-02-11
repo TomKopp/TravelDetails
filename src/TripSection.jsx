@@ -6,7 +6,7 @@ import MediaList from './MediaList';
 import React from 'react';
 import Transport from './Transport';
 
-export default ({ location, startDate, endDate, content = [], mediaList, rating, transport, hotel, activities = [] }) => {
+export default ({ location, startDate, endDate, content = [], mediaList, rating, transport, hotel = [], activities = [] }) => {
     const title = content.shift() || 'Generic Title';
 
     return <Paper className="section" component="article">
@@ -31,7 +31,7 @@ export default ({ location, startDate, endDate, content = [], mediaList, rating,
         </Grid>
 
         <Transport {...transport} />
-        <Accommodation {...hotel} />
+        {hotel.map((el) => <Accommodation key={el.id} {...el} />)}
         {activities.map((el) => <Activity key={el.id} {...el} />)}
     </Paper>;
 };

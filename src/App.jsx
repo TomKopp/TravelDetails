@@ -9,7 +9,7 @@ export default class App extends Component {
         super(props);
 
         this.travelDetails = props.travelDetails;
-        document.addEventListener('onUpdateTripSections', ({ detail: tripSections }) => this.onUpdateTripSections(tripSections));
+        document.addEventListener('onUpdateTripSections', ({ detail: trip }) => this.onUpdateTripSections(trip));
 
         this.state = {
             trip: props.trip
@@ -29,7 +29,6 @@ export default class App extends Component {
     }
 
     onUpdateTripSections(trip) {
-        console.warn(trip);
         this.setState({ trip });
     }
 

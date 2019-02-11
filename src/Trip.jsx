@@ -9,7 +9,9 @@ export default ({ title = 'Generic Title', startDate, endDate, rating, sections 
         .reduce((carry, el) => carry.concat(el.mediaList), []);
     const hotelsNameList = sections
         .filter((el) => Boolean(el.hotel))
-        .map((el) => el.hotel.name)
+        .map((el) => el.hotel)
+        .flat()
+        .map((el) => el.name)
         .join(', ');
 
     return <Paper className="section" component="article">

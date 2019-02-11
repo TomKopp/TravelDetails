@@ -22,7 +22,7 @@ export default ({ name, city: location, bookingStart: startDate, bookingEnd: end
             <Grid item xs={6}><Typography>{endDate && <span className="ico-string"><CalendarToday />End: {endDate.toDateString()}</span>}</Typography></Grid>
             <Grid item xs={6}><Typography>{rating && <span className="ico-string"><Star />Rating: {rating}</span>}</Typography></Grid>
             <Grid item xs={6}><Typography>{location && <span className="ico-string"><Place />{location}</span>}</Typography></Grid>
-            <Grid item xs={12}><Typography gutterBottom>Features: {hotelFeatureList.map((el) => el.name).join(', ')}</Typography></Grid>
+            <Grid item xs={12}><Typography gutterBottom>{hotelFeatureList && <span>Features: {hotelFeatureList.map((el) => el.name).join(', ')}</span>}</Typography></Grid>
             <Grid item xs={12}>{offers.map((el, key) => <Offer key={key} {...el} />)}</Grid>
         </Grid>
         <Grid item container justify="flex-end">
