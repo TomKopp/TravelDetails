@@ -6,7 +6,7 @@ import React from 'react';
 export const Offer = ({ name, availabilities = [], pricePerNight }) => <Grid container spacing={8}>
     <Grid item xs={6}><Typography variant="button">{name}</Typography></Grid>
     <Grid item xs={6}><Typography><EuroSymbol />{pricePerNight}€</Typography></Grid>
-    <Grid item xs={12}>{availabilities.map(({ startDate, endDate }, key) => <Typography key={key} component="span" className="ico-string"><CalendarToday />{startDate.toDateString()} - {endDate.toDateString()}</Typography>)}</Grid>
+    <Grid item xs={12}>{availabilities.map(({ startDate, endDate }, key) => <Typography key={key} component="span" className="ico-string"><CalendarToday />{(new Date(startDate)).toDateString()} - {(new Date(endDate)).toDateString()}</Typography>)}</Grid>
 </Grid>;
 
 export default ({ name, city: location, bookingStart: startDate, bookingEnd: endDate, offers = [], hotelFeatureList = [], hotelImageUrls = [], rating }) => <Paper className="paper" component="article">
